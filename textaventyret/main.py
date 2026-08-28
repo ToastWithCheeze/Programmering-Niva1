@@ -1,3 +1,5 @@
+import random
+
 player = input("Vad heter du? ")
 
 print(f"Hej {player}")
@@ -15,7 +17,9 @@ elif choice.lower() == "vänster":
         print("Du har nått slutet, med ingen belöning och bara en återvändsgränd.")
     
     elif choice == "röd":
-        print("Du har hittat massa potatis säckar så det räcker för livet!")
+        potatis = random.randint(0,40) 
+        
+        print(f"Du har hittat {potatis} potatis säckar så det räcker för livet!")
     else:
         print(f"vafan har du skrivit?? {choice}")
 else: 
