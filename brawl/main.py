@@ -4,7 +4,7 @@ import random
 PlayerHP = random.randint(50,200)
 EnemyHP = random.randint(50,200)
 
-print(f"HP {PlayerHP}")
+print(f"HP: {PlayerHP}")
 
 #Damages player until death
 while PlayerHP > 0:
