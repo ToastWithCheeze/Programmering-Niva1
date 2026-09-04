@@ -1,5 +1,3 @@
-import math
-
 #Frågar Mätarställning
 Mätarställning_idag = int(input("Vad är mätarställningen idag? "))
 Mätarställning_år_sedan = int(input("Vad var mätarställningen för ett år sedan? "))
