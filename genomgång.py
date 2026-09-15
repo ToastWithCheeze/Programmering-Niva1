@@ -25,3 +25,8 @@ elif name != "Theo":
     print("Du heter inte Theo.")
 else: 
     print("Du heter Theo.")
+
+if name =="Per" and ålder == 43:
+    print("Du är Per som är 43 år")
+else:
+    print("Du är inte Per som är 43 år")
