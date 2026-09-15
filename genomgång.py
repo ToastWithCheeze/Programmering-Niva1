@@ -16,3 +16,12 @@ elif ålder <= 20:
     print("Du får ta körkort")
 else:
     print("Du får handla på systembolaget.")
+
+name = input("Vad heter du? ")
+
+if name == "Adrian":
+    print("You very noob icl tsk tsk.")
+elif name != "Theo":
+    print("Du heter inte Theo.")
+else: 
+    print("Du heter Theo.")
