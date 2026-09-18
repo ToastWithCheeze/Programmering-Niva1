@@ -1,18 +1,31 @@
 import random
 
-#playerHP: int = 100
-FirstEnemyHP: int = int(100)
+
+enemy_hp = 100
+max_rounds = 5
 
 def attack(enemy):
     while enemy > 0:
-        input("Press any key to Attack (-10)")
-        enemy -= 10
-        print(f"{enemy}HP left on enemy.")
+        input("Press any key to Attack")
+        damage = random.randint(1,20)
+        enemy -= damage
+        #Makes any negative integer automatically to 0
+        if enemy < 0:
+            enemy = 0
+
+        print(f"You did {damage} damage, {enemy}HP left on enemy.\n ")
         if enemy > 0:
-            print("You are still alive!")
+            print("Enemy are still alive!")
         elif enemy <= 0:
-            print("You are dead probably.")
+            print("Enemy are dead probably.")
+            
+def attack_rounds(enemy,max_round):
+    round = 0
+    while round < max_round:
+        print(f"\nround {round} Starting with enemies starting on {enemy} HP\n")
+        attack(enemy)
+        round += 1
+    print(f"You have now played your {max_round} rounds")
 
 
-
-attack(FirstEnemyHP)
+attack_rounds(enemy_hp,max_rounds)
