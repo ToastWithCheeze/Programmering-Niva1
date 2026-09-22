@@ -1,32 +1,38 @@
+import time
 import random
+#Variables
+player_hp = random.randint(50,200)
+enemy_hp = random.randint(50,200)
+
+def attack_player(player_hp, enemy_hp):
+    ...
+
+def attack_enemy(player_hp, enemy_hp):
+    ...
+
+def defend(player_hp, enemy_hp):
+    ...
+
+def main():
+    player_name = input("What's your name? ")
+
+    #importing global variables
+    global player_hp
+    global enemy_hp
 
 
-enemy_hp = 100
-max_rounds = 5
-max_damage = 20
+    print(f"{player_name} starts with {player_hp} HP")
+    print(f"Enemy starts with {enemy_hp} HP\n")
+    time.sleep(3)
+    #Damages player until death
+    while player_hp > 0:
+        choice = input(f"You got {player_hp} HP, and Enemy got {enemy_hp} HP left\n[A]ttack or [D]efend: ").lower()
+        if choice == "d":
+            defend(player_hp, enemy_hp)
+        elif choice =="a":
+            attack_enemy(player_hp,enemy_hp)
+        else:
+            print("Not valid choice!, Try again")
 
-def attack(enemy, max_damage = 20):
-    while enemy > 0:
-        input("Press any key to Attack")
-        damage = random.randint(1,max_damage)
-        enemy -= damage
-        #Makes any negative integer automatically to 0
-        if enemy < 0:
-            enemy = 0
-
-        print(f"You did {damage} damage, {enemy}HP left on enemy.\n ")
-        if enemy > 0:
-            print("Enemy are still alive!")
-        elif enemy <= 0:
-            print("Enemy are dead probably.")
-            
-def attack_rounds(enemy,max_round,max_damage = 20):
-    round = 0
-    while round < max_round:
-        print(f"\nround {round} Starting with enemies starting on {enemy} HP\n")
-        attack(enemy,max_damage)
-        round += 1
-    print(f"You have now played your {max_round} rounds")
-
-
-attack_rounds(enemy_hp,max_rounds)
+#Runs main function
+main()
