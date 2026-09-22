@@ -38,11 +38,13 @@ def main():
     while player_hp > 0:
         choice = input(f"You got {player_hp} HP, and Enemy got {enemy_hp} HP left\n[A]ttack or [D]efend: ").lower()
         if choice == "d":
-            defend(player_hp)
-            #Returns new player_hp value
+            #Defends player Returns new player_hp value
             player_hp = defend(player_hp)
         elif choice =="a":
-            attack_enemy(player_hp,enemy_hp)
+            #Player attacks enemy
+            player_hp, enemy_hp = attack_enemy(player_hp,enemy_hp)
+            #Enemy attacks player
+            player_hp, enemy_hp = attack_player(player_hp,enemy_hp)
         else:
             print("Not valid choice!, Try again")
 
