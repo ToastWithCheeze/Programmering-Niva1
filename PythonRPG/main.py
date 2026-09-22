@@ -16,7 +16,7 @@ def defend(player_hp):
     defense = random.randint(10,40)
 
     damage_amount = enemy_damage - defense
-    if damage_amount < 0:
+    if damage_amount <= 0: 
         damage_amount = 0
         print("You nullified the attacks")
     else:
