@@ -3,7 +3,7 @@ import random
 
 #Variables
 player_hp = int(random.randint(50,200))
-enemy_hp = random.randint(50,200)
+enemy_hp = int(random.randint(50,200))
 
 def attack(damage, target_hp):
     target_hp -= damage
