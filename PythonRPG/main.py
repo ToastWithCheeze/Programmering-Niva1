@@ -2,14 +2,12 @@ import time
 import random
 
 #Variables
-player_hp = random.randint(50,200)
+player_hp = int(random.randint(50,200))
 enemy_hp = random.randint(50,200)
 
-def attack_player(player_hp, enemy_hp):
-    ...
-
-def attack_enemy(player_hp, enemy_hp):
-    ...
+def attack(damage, target_hp):
+    target_hp -= damage
+    return target_hp
 
 def defend(player_hp):
     enemy_damage = random.randint(10,40)
@@ -42,9 +40,14 @@ def main():
             player_hp = defend(player_hp)
         elif choice =="a":
             #Player attacks enemy
-            player_hp, enemy_hp = attack_enemy(player_hp,enemy_hp)
+            player_damage = random.randint(1,10)
+            enemy_hp = attack(player_damage,enemy_hp)
+            print(f"You did {player_damage} damage to enemy!")
+            
             #Enemy attacks player
-            player_hp, enemy_hp = attack_player(player_hp,enemy_hp)
+            enemy_damage = random.randint(1,10)
+            player_hp = attack(enemy_damage,player_hp)
+            print(f"Enemy did {enemy_damage} damage on you!")
         else:
             print("Not valid choice!, Try again")
 
