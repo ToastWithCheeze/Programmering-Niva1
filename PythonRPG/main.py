@@ -50,6 +50,10 @@ def main():
             print(f"\nEnemy did {enemy_damage} damage on you!\n")
         else:
             print("Not valid choice!, Try again")
+    if player_hp <= 0:
+        print("Enemy Won!")
+    elif enemy_hp <= 0:
+        print("Player Won!")
 
 #Runs main function
 main()
