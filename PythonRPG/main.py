@@ -33,7 +33,7 @@ def main():
     print(f"{player_name} starts with {player_hp} HP")
     print(f"Enemy starts with {enemy_hp} HP\n")
     #Damages player until death
-    while player_hp > 0:
+    while player_hp > 0 and enemy_hp > 0:   
         choice = input(f"You got {player_hp} HP, and Enemy got {enemy_hp} HP left\n[A]ttack or [D]efend: ").lower()
         if choice == "d":
             #Defends player Returns new player_hp value
@@ -47,7 +47,7 @@ def main():
             #Enemy attacks player
             enemy_damage = random.randint(1,10)
             player_hp = attack(enemy_damage,player_hp)
-            print(f"Enemy did {enemy_damage} damage on you!")
+            print(f"\nEnemy did {enemy_damage} damage on you!\n")
         else:
             print("Not valid choice!, Try again")
 
