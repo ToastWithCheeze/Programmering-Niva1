@@ -1,5 +1,6 @@
 import time
 import random
+import os
 
 class character:
     def __init__(self, hp):
@@ -30,7 +31,8 @@ def main():
     print(f"Enemy starts with {enemy.hp} HP\n")
     #Damages player until death
     while player.hp > 0 and enemy.hp > 0:   
-        choice = input(f"You got {player.hp} HP, and Enemy got {enemy.hp} HP left\n[A]ttack or [D]efend: ").lower()
+        os.system("cls")
+        choice = input(f"{player.name} got {player.hp} HP, and Enemy got {enemy.hp} HP left\n[A]ttack or [D]efend: ").lower()
         if choice == "d":
             #Defends player Returns new player_hp value
             player.defend(random.randint(1,20))
@@ -39,14 +41,17 @@ def main():
             #Player attacks enemy
             player.damage = random.randint(1,10)
             player.attack(enemy)
-            print(f"You did {player.damage} damage to enemy!")
+            print(f"{player.name} did {player.damage} damage to enemy!")
             
+            time.sleep(0.5)
+
             #Enemy attacks player
             enemy.damage = random.randint(1,10)
             enemy.attack(player)
             print(f"\nEnemy did {enemy.damage} damage on you!\n")
         else:
             print("Not valid choice!, Try again")
+        time.sleep(1)
     
     
     if player.hp <= 0:
