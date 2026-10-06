@@ -7,8 +7,8 @@ class character:
         self.hp = hp
         self.damage = 0
     def attack(self, target):
-        target -= self.damage
-        return target
+        target.hp -= self.damage
+
     def defend(self, enemy_damage):
         defense = random.randint(10,40)
 
@@ -19,7 +19,6 @@ class character:
         else:
             self.hp -= damage_amount
             print(f"You took {damage_amount} damage")
-        return self.hp
 
 def main():
     player = character(random.randint(50,200))
@@ -34,17 +33,17 @@ def main():
         choice = input(f"You got {player.hp} HP, and Enemy got {enemy.hp} HP left\n[A]ttack or [D]efend: ").lower()
         if choice == "d":
             #Defends player Returns new player_hp value
-            player.hp = player.defend(random.randint(1,10))
+            player.defend(random.randint(1,10))
 
         elif choice =="a":
             #Player attacks enemy
             player.damage = random.randint(1,10)
-            enemy.hp = int(player.attack(enemy.hp))
+            player.attack(enemy)
             print(f"You did {player.damage} damage to enemy!")
             
             #Enemy attacks player
             enemy.damage = random.randint(1,10)
-            player.hp = int(enemy.attack(player.hp))
+            enemy.attack(player)
             print(f"\nEnemy did {enemy.damage} damage on you!\n")
         else:
             print("Not valid choice!, Try again")
