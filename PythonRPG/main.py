@@ -10,7 +10,7 @@ class character:
         target.hp -= self.damage
 
     def defend(self, enemy_damage):
-        defense = random.randint(10,40)
+        defense = random.randint(1,10)
 
         damage_amount = enemy_damage - defense
         if damage_amount <= 0: 
@@ -33,7 +33,7 @@ def main():
         choice = input(f"You got {player.hp} HP, and Enemy got {enemy.hp} HP left\n[A]ttack or [D]efend: ").lower()
         if choice == "d":
             #Defends player Returns new player_hp value
-            player.defend(random.randint(1,10))
+            player.defend(random.randint(1,20))
 
         elif choice =="a":
             #Player attacks enemy
