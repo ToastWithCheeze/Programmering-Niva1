@@ -23,12 +23,13 @@ def check_winner():
         if board[i[0]] == "X" and board[i[1]] == "X" and board[i[2]] == "X":
             print("X won")
 
+def move(player):
+    position = int(input("Where do you wanna place your marker? ")) 
+    board[position - 1] = player
+
 display_board()
 
-input() # blank input
-board[3] = "X"
-board[4] = "X"
-board[5] = "X"
+move("X")
 
 display_board()
 
