@@ -9,6 +9,9 @@ instruktion = """Välkommen:
 idag ska vi lära oss ngt
 muhehehe"""
 
-print(instruktion)
+namn = "Theo Gidlund"
+print(namn[::-1])
+
+
 
 #orkar inte meeeer
