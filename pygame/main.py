@@ -1,10 +1,10 @@
 import pygame
 import sys
-
+from globals import *
 class Game:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((600, 600))
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
         self.running = True
         self.player = pygame.Rect(100,100,50,50)
@@ -13,7 +13,7 @@ class Game:
             self.draw()
             self.update()
             
-            pygame.time.Clock().tick(60)
+            pygame.time.Clock().tick(FPS)
         self.close()
     def update(self):
         for event in pygame.event.get():
@@ -25,11 +25,11 @@ class Game:
 
         if self.keys[pygame.K_LEFT] and self.player.x > 0:
             self.player.x -= 5
-        if self.keys[pygame.K_RIGHT] and self.player.x < (600-50):
+        if self.keys[pygame.K_RIGHT] and self.player.x < (SCREEN_WIDTH-50):
             self.player.x += 5
         if self.keys[pygame.K_UP] and self.player.y > 0:
             self.player.y -= 5
-        if self.keys[pygame.K_DOWN] and self.player.y < (600-50):
+        if self.keys[pygame.K_DOWN] and self.player.y < (SCREEN_HEIGHT-50):
             self.player.y += 5
         
 
