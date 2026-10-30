@@ -1,42 +1,41 @@
 import pygame
 import sys
 from globals import *
+from player import Player
+
 class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
         self.running = True
-        self.player = pygame.Rect(100,100,50,50)
+        
+        #Creates sprite groups
+        self.all_sprites = pygame.sprite.Group()
+
+        self.player = Player(self.all_sprites)
+
     def run(self):
         while self.running:
-            self.draw()
             self.update()
+            self.draw()
             
             pygame.time.Clock().tick(FPS)
         self.close()
+
     def update(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
-            self.keys = pygame.key.get_pressed()
-        #Imported old movement controlls, will change later
+        self.all_sprites.update()
 
-
-        if self.keys[pygame.K_LEFT] and self.player.x > 0:
-            self.player.x -= 5
-        if self.keys[pygame.K_RIGHT] and self.player.x < (SCREEN_WIDTH-50):
-            self.player.x += 5
-        if self.keys[pygame.K_UP] and self.player.y > 0:
-            self.player.y -= 5
-        if self.keys[pygame.K_DOWN] and self.player.y < (SCREEN_HEIGHT-50):
-            self.player.y += 5
         
 
         pygame.display.update()   
     def draw(self):
         self.screen.fill((255,255,255))
-        pygame.draw.rect(self.screen, (255,0,0), self.player, 0)
+
+        self.all_sprites.draw(self.screen)
+        
     def close(self):
         pygame.quit()
         sys.exit()
