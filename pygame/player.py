@@ -9,7 +9,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
         self.direction = pygame.math.Vector2
-        self.velocity = 5
+        self.velocity = VELOCITY
 
     def update(self):
         keys = pygame.key.get_pressed()
