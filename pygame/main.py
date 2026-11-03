@@ -8,7 +8,7 @@ class Game:
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.running = True
-        
+        self.clock = pygame.time.Clock()
         #Creates sprite groups
         self.all_sprites = pygame.sprite.Group()
 
@@ -19,17 +19,15 @@ class Game:
             self.update()
             self.draw()
             
-            pygame.time.Clock().tick(FPS)
+            self.clock.tick(FPS)
         self.close()
 
     def update(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+
         self.all_sprites.update()
-
-        
-
         pygame.display.update()   
     def draw(self):
         self.screen.fill((255,255,255))
